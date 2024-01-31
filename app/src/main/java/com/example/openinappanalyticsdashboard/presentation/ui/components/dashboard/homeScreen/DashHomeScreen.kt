@@ -54,6 +54,7 @@ import com.example.openinappanalyticsdashboard.ui.theme.LightGreen
 import com.example.openinappanalyticsdashboard.ui.theme.ThemeGray
 import com.example.openinappanalyticsdashboard.ui.theme.TransparentWhite
 import com.google.gson.Gson
+import java.util.Calendar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -232,7 +233,7 @@ fun DashHomeScreen(viewModel: DashboardViewModel) {
 fun Greeting() {
     Column(Modifier.padding(20.dp)) {
         Text(
-            text = Helper.getGreetingForTheDay(),
+            text = Helper.getGreetingForTheDay(Calendar.getInstance().get(Calendar.HOUR_OF_DAY)),
             style = CustomTypography.smallFont,
             color = ThemeGray
         )

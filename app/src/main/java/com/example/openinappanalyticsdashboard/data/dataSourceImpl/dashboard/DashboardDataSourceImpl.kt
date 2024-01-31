@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class DashboardDataSourceImpl @Inject constructor(private val service: DashboardService) :
+class DashboardDataSourceImpl @Inject constructor(val service: DashboardService) :
     DashboardDataSource {
     override suspend fun getDashboardData(): Flow<NetworkState> =
         flow {

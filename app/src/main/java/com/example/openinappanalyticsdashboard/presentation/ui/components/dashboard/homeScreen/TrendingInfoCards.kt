@@ -18,7 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.openinappanalyticsdashboard.Helper.nonNullToString
+import com.example.openinappanalyticsdashboard.Helper.nonNullString
 import com.example.openinappanalyticsdashboard.R
 import com.example.openinappanalyticsdashboard.data.models.dashboard.DashboardDataDto
 import com.example.openinappanalyticsdashboard.ui.theme.CustomTypography
@@ -31,17 +31,17 @@ fun DashboardDataDto.toTrendingContent(): List<ClickCard> {
         ClickCard(
             image = R.drawable.click_count_icon,
             title = "Today's Clicks",
-            subtitle = this.todayClicks.nonNullToString()
+            subtitle = this.todayClicks.nonNullString()
         ),
         ClickCard(
             image = R.drawable.location_icon,
             title = "Top Location",
-            subtitle = this.topLocation.nonNullToString()
+            subtitle = this.topLocation.nonNullString()
         ),
         ClickCard(
             image = R.drawable.web_source_icon,
             title = "Top Source",
-            subtitle = this.topSource.nonNullToString()
+            subtitle = this.topSource.nonNullString()
         )
     )
 }

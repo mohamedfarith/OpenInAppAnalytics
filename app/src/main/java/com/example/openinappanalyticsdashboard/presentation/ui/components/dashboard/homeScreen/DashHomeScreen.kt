@@ -42,7 +42,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import com.example.openinappanalyticsdashboard.Helper
 import com.example.openinappanalyticsdashboard.OpenInAppConstants
 import com.example.openinappanalyticsdashboard.R
-import com.example.openinappanalyticsdashboard.data.NetworkState
+import com.example.openinappanalyticsdashboard.network.NetworkState
 import com.example.openinappanalyticsdashboard.data.models.dashboard.DashboardDataDto
 import com.example.openinappanalyticsdashboard.data.models.dashboard.LinksDataDto
 import com.example.openinappanalyticsdashboard.presentation.ui.viewModels.DashboardViewModel

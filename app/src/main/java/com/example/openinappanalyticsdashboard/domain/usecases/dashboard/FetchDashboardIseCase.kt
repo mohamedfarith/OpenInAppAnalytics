@@ -1,8 +1,7 @@
 package com.example.openinappanalyticsdashboard.domain.usecases.dashboard
 
-import com.example.openinappanalyticsdashboard.data.NetworkState
+import com.example.openinappanalyticsdashboard.network.NetworkState
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 
 interface FetchDashboardIseCase {
 

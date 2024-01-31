@@ -1,6 +1,5 @@
 package com.example.openinappanalyticsdashboard
 
-import android.widget.Toast
 import java.text.SimpleDateFormat
 import java.util.Calendar
 
@@ -61,7 +60,7 @@ object Helper {
         return map.first().plus(" - ").plus(map.last())
     }
 
-    fun Any?.nonNullToString(): String {
+    fun Any?.nonNullString(): String {
         val value = this.toString()
         return if (value.contains("null")) "" else value
     }

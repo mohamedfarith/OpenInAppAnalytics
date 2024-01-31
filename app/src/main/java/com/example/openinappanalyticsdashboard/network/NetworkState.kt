@@ -1,4 +1,4 @@
-package com.example.openinappanalyticsdashboard.data
+package com.example.openinappanalyticsdashboard.network
 
 sealed class NetworkState {
     data class Success(val data: Any?) : NetworkState()

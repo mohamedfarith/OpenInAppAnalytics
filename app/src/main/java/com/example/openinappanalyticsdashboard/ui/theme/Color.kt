@@ -16,3 +16,6 @@ val DarkBlue = Color(0xFF0E6FFF)
 val Green  = Color(0xFF4AD15F)
 val LightGreen = Color(0xFFE0F1E2)
 val TransparentWhite = Color(0xFFF5F5F5)
+//gradient for graph
+val GradientStart = Color(0x000E6FFF)
+val GradientEnd = Color(0xFF0E6FFF)

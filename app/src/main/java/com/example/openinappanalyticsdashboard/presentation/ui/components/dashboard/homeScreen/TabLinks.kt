@@ -30,10 +30,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.openinappanalyticsdashboard.Helper.nonNullToString
+import com.example.openinappanalyticsdashboard.Helper.nonNullString
 import com.example.openinappanalyticsdashboard.R
 import com.example.openinappanalyticsdashboard.data.models.dashboard.LinksDataDto
 import com.example.openinappanalyticsdashboard.ui.theme.CustomTypography
@@ -68,18 +67,18 @@ fun LinksDataDto.toUiData(): LinksUiData {
     return LinksUiData(
         urlId = this.urlId ?: -1,
         webLink = this.webLink ?: "",
-        smartLink = this.smartLink.nonNullToString(),
-        title = this.title.nonNullToString(),
-        totalClicks = this.totalClicks.nonNullToString(),
-        originalImage = this.originalImage.nonNullToString(),
-        thumbnail = this.thumbnail.nonNullToString(),
-        timesAgo = this.timesAgo.nonNullToString(),
-        createdAt = this.createdAt.nonNullToString(),
-        domainId = this.domainId.nonNullToString(),
-        urlPrefix = this.urlPrefix.nonNullToString(),
-        urlSuffix = this.urlSuffix.nonNullToString(),
+        smartLink = this.smartLink.nonNullString(),
+        title = this.title.nonNullString(),
+        totalClicks = this.totalClicks.nonNullString(),
+        originalImage = this.originalImage.nonNullString(),
+        thumbnail = this.thumbnail.nonNullString(),
+        timesAgo = this.timesAgo.nonNullString(),
+        createdAt = this.createdAt.nonNullString(),
+        domainId = this.domainId.nonNullString(),
+        urlPrefix = this.urlPrefix.nonNullString(),
+        urlSuffix = this.urlSuffix.nonNullString(),
         isFavourite = this.isFavourite ?: false,
-        app = this.app.nonNullToString()
+        app = this.app.nonNullString()
     )
 }
 

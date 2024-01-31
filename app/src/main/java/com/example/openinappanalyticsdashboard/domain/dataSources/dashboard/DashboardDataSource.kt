@@ -1,6 +1,6 @@
 package com.example.openinappanalyticsdashboard.domain.dataSources.dashboard
 
-import com.example.openinappanalyticsdashboard.data.NetworkState
+import com.example.openinappanalyticsdashboard.network.NetworkState
 import kotlinx.coroutines.flow.Flow
 
 interface DashboardDataSource {

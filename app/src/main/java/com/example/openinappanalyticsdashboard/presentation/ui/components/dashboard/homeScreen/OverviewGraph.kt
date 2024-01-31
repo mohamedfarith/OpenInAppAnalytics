@@ -20,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -30,11 +31,16 @@ import androidx.compose.ui.unit.dp
 import com.example.openinappanalyticsdashboard.Helper
 import com.example.openinappanalyticsdashboard.R
 import com.example.openinappanalyticsdashboard.ui.theme.CustomTypography
+import com.example.openinappanalyticsdashboard.ui.theme.DarkBlue
+import com.example.openinappanalyticsdashboard.ui.theme.GradientEnd
+import com.example.openinappanalyticsdashboard.ui.theme.GradientStart
 import com.example.openinappanalyticsdashboard.ui.theme.LightGrey
 import com.example.openinappanalyticsdashboard.ui.theme.PurpleGrey40
 import com.example.openinappanalyticsdashboard.ui.theme.ThemeGray
 import com.jaikeerthick.composable_graphs.composables.line.LineGraph
 import com.jaikeerthick.composable_graphs.composables.line.model.LineData
+import com.jaikeerthick.composable_graphs.composables.line.style.LineGraphColors
+import com.jaikeerthick.composable_graphs.composables.line.style.LineGraphFillType
 import com.jaikeerthick.composable_graphs.composables.line.style.LineGraphStyle
 import com.jaikeerthick.composable_graphs.composables.line.style.LineGraphVisibility
 import com.jaikeerthick.composable_graphs.style.LabelPosition
@@ -45,7 +51,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun OverviewGraph(chart: Map<String, Int>?) {
-    val coroutineScope = rememberCoroutineScope()
     val dateRange = Helper.findRangeBetweenDates(chart)
     androidx.compose.material.Card(
         modifier = Modifier
@@ -100,18 +105,28 @@ fun OverviewGraph(chart: Map<String, Int>?) {
                 }
 
             }
-            StatsLineGraph(coroutineScope = coroutineScope, chart = chart)
+            StatsLineGraph(chart = chart)
         }
     }
 }
 
 @Composable
-private fun StatsLineGraph(coroutineScope: CoroutineScope, chart: Map<String, Int>?) {
+private fun StatsLineGraph(chart: Map<String, Int>?) {
     val lineDataList = chart?.mapNotNull {
         Helper.extractMonthFromDate(it.key)?.let { month -> LineData(month, it.value) }
     }?.filter { it.y != 0 } ?: arrayListOf()
     LineGraph(
         style = LineGraphStyle(
+            colors = LineGraphColors(
+                lineColor = DarkBlue,
+                pointColor = DarkBlue,
+                clickHighlightColor = DarkBlue,
+                fillType = LineGraphFillType.Gradient(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(GradientEnd, GradientStart)
+                    )
+                )
+            ),
             yAxisLabelPosition = LabelPosition.LEFT,
             visibility = LineGraphVisibility(
                 isYAxisLabelVisible = true,

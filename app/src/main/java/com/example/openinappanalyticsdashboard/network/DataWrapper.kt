@@ -1,4 +1,4 @@
-package com.example.openinappanalyticsdashboard.data
+package com.example.openinappanalyticsdashboard.network
 
 import android.util.Log
 import com.example.openinappanalyticsdashboard.OpenInAppConstants

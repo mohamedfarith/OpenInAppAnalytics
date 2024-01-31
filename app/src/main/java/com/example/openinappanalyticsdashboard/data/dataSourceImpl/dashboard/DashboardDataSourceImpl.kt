@@ -1,9 +1,9 @@
 package com.example.openinappanalyticsdashboard.data.dataSourceImpl.dashboard
 
 import com.example.openinappanalyticsdashboard.OpenInAppConstants
-import com.example.openinappanalyticsdashboard.data.DataWrapper
-import com.example.openinappanalyticsdashboard.data.NetworkState
-import com.example.openinappanalyticsdashboard.data.services.DashboardService
+import com.example.openinappanalyticsdashboard.network.DataWrapper
+import com.example.openinappanalyticsdashboard.network.NetworkState
+import com.example.openinappanalyticsdashboard.network.services.DashboardService
 import com.example.openinappanalyticsdashboard.domain.dataSources.dashboard.DashboardDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

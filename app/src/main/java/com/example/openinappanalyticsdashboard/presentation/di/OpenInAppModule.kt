@@ -1,9 +1,15 @@
 package com.example.openinappanalyticsdashboard.presentation.di
 
-import com.example.openinappanalyticsdashboard.data.services.DashboardService
+import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
+import com.example.openinappanalyticsdashboard.network.services.DashboardService
+import com.example.openinappanalyticsdashboard.presentation.PreferenceConstants
+import com.example.openinappanalyticsdashboard.presentation.SharePreferenceManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 
 @Module
@@ -11,6 +17,8 @@ import dagger.hilt.components.SingletonComponent
 class OpenInAppModule {
 
     @Provides
-    fun getServiceInstance(): DashboardService = DashboardService.create()
-
+    fun getServiceInstance(): DashboardService {
+        val token = SharePreferenceManager.getString(PreferenceConstants.TOKEN) ?: ""
+        return DashboardService.create(token)
+    }
 }

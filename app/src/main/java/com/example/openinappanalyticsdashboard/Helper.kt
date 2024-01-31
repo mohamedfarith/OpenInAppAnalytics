@@ -6,9 +6,8 @@ import java.util.Calendar
 
 object Helper {
 
-    fun getGreetingForTheDay(): String {
-        val c = Calendar.getInstance()
-        when (c[Calendar.HOUR_OF_DAY]) {
+    fun getGreetingForTheDay(hourOfTheDay: Int): String {
+        when (hourOfTheDay) {
             in 0..11 -> {
                 return "Good Morning"
             }
@@ -19,10 +18,6 @@ object Helper {
 
             in 16..20 -> {
                 return "Good Evening"
-            }
-
-            in 21..23 -> {
-                return "Good Night"
             }
         }
         return "Hello"
@@ -40,7 +35,7 @@ object Helper {
 
     }
 
-    private fun extractMonthAndDay(date: String): String? {
+     fun extractMonthAndDay(date: String): String? {
         try {
             val date = SimpleDateFormat("yyyy-MM-dd").parse(date)
             val calendar = Calendar.getInstance()
@@ -56,8 +51,11 @@ object Helper {
         if (chart == null) {
             return ""
         }
+        if(chart.isEmpty()){
+            return ""
+        }
         val map = chart.filter { it.value != 0 }.mapNotNull { extractMonthAndDay(it.key) }
-        return map.first().plus(" - ").plus(map.last())
+        return if(map.size>1) map.first().plus(" - ").plus(map.last()) else map.first()
     }
 
     fun Any?.nonNullString(): String {
